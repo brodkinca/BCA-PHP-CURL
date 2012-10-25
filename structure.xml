@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project version="2.0.0a10" title="BCA cURL Wrapper Library">
-  <file path="CURL.php" hash="f35bd515178a61ed44d390cdb8be2a3c" package="BCA/CURL">
+  <file path="CURL.php" hash="51d4556fea78046f11999f3b48eab5ee" package="BCA/CURL">
     <docblock line="3">
       <description><![CDATA[cURL Library]]></description>
       <long-description><![CDATA[<p>PHP Version 5.3</p>]]></long-description>
@@ -9,7 +9,7 @@
       <tag line="3" name="author" description="Brodkin CyberArts &lt;support@brodkinca.com&gt;"/>
       <tag line="3" name="copyright" description="2012 Brodkin CyberArts."/>
       <tag line="3" name="license" description="All rights reserved."/>
-      <tag line="3" name="version" description="GIT: $Id: 5045c6b34ef029a6f1fdece8d8874af5a3622e18 $"/>
+      <tag line="3" name="version" description="GIT: $Id: 81e6f3862321360baf3311119146908cabbed1ea $"/>
       <tag line="3" name="link" description="https://github.com/brodkinca/BCA-PHP-CURL" link="https://github.com/brodkinca/BCA-PHP-CURL"/>
     </docblock>
     <class final="false" abstract="false" namespace="BCA\CURL" line="33" package="BCA/CURL">
@@ -25,7 +25,7 @@
         <tag line="19" name="author" description="Philip Sturgeon &lt;email@philsturgeon.co.uk&gt;"/>
         <tag line="19" name="copyright" description="2012 Brodkin CyberArts."/>
         <tag line="19" name="license" description="All rights reserved."/>
-        <tag line="19" name="version" description="GIT: $Id: 5045c6b34ef029a6f1fdece8d8874af5a3622e18 $"/>
+        <tag line="19" name="version" description="GIT: $Id: 81e6f3862321360baf3311119146908cabbed1ea $"/>
         <tag line="19" name="link" description="https://github.com/brodkinca/BCA-PHP-CURL" link="https://github.com/brodkinca/BCA-PHP-CURL"/>
       </docblock>
       <property final="false" static="false" visibility="protected" line="40" namespace="BCA\CURL" package="Default">
@@ -467,7 +467,7 @@
       </method>
     </class>
   </file>
-  <file path="Response.php" hash="4c6fe894a9d8ec72ecb6d43be4aa760e" package="BCA/CURL">
+  <file path="Response.php" hash="0687417eb4b22da70586bae745b3d68e" package="BCA/CURL">
     <docblock line="3">
       <description><![CDATA[cURL Library]]></description>
       <long-description><![CDATA[<p>PHP Version 5.3</p>]]></long-description>
@@ -476,7 +476,7 @@
       <tag line="3" name="author" description="Brodkin CyberArts &lt;support@brodkinca.com&gt;"/>
       <tag line="3" name="copyright" description="2012 Brodkin CyberArts."/>
       <tag line="3" name="license" description="All rights reserved."/>
-      <tag line="3" name="version" description="GIT: $Id: 44500bb622fb51e0ad31b51037d20461863ad1fb $"/>
+      <tag line="3" name="version" description="GIT: $Id: 722f77bb989e9f78f908b4a066b69ca7d441163f $"/>
       <tag line="3" name="link" description="https://github.com/brodkinca/BCA-PHP-CURL" link="https://github.com/brodkinca/BCA-PHP-CURL"/>
     </docblock>
     <class final="false" abstract="false" namespace="BCA\CURL" line="29" package="BCA/CURL">
