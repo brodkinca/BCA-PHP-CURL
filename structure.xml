@@ -1,0 +1,642 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a10" title="BCA cURL Wrapper Library">
+  <file path="CURL.php" hash="f35bd515178a61ed44d390cdb8be2a3c" package="BCA/CURL">
+    <docblock line="3">
+      <description><![CDATA[cURL Library]]></description>
+      <long-description><![CDATA[<p>PHP Version 5.3</p>]]></long-description>
+      <tag line="3" name="category" description="Library"/>
+      <tag line="3" name="package" description="BCA/CURL"/>
+      <tag line="3" name="author" description="Brodkin CyberArts &lt;support@brodkinca.com&gt;"/>
+      <tag line="3" name="copyright" description="2012 Brodkin CyberArts."/>
+      <tag line="3" name="license" description="All rights reserved."/>
+      <tag line="3" name="version" description="GIT: $Id: 5045c6b34ef029a6f1fdece8d8874af5a3622e18 $"/>
+      <tag line="3" name="link" description="https://github.com/brodkinca/BCA-PHP-CURL" link="https://github.com/brodkinca/BCA-PHP-CURL"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="BCA\CURL" line="33" package="BCA/CURL">
+      <extends/>
+      <name>CURL</name>
+      <full_name>\BCA\CURL\CURL</full_name>
+      <docblock line="19">
+        <description><![CDATA[cURL Request Class]]></description>
+        <long-description><![CDATA[<p>Work with remote servers via cURL much easier than using the native PHP bindings.</p>]]></long-description>
+        <tag line="19" name="category" description="Library"/>
+        <tag line="19" name="package" description="BCA/CURL"/>
+        <tag line="19" name="author" description="Brodkin CyberArts &lt;support@brodkinca.com&gt;"/>
+        <tag line="19" name="author" description="Philip Sturgeon &lt;email@philsturgeon.co.uk&gt;"/>
+        <tag line="19" name="copyright" description="2012 Brodkin CyberArts."/>
+        <tag line="19" name="license" description="All rights reserved."/>
+        <tag line="19" name="version" description="GIT: $Id: 5045c6b34ef029a6f1fdece8d8874af5a3622e18 $"/>
+        <tag line="19" name="link" description="https://github.com/brodkinca/BCA-PHP-CURL" link="https://github.com/brodkinca/BCA-PHP-CURL"/>
+      </docblock>
+      <property final="false" static="false" visibility="protected" line="40" namespace="BCA\CURL" package="Default">
+        <name>$session</name>
+        <default><![CDATA[]]></default>
+        <docblock line="35">
+          <description><![CDATA[cURL Session Handler]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="35" name="var" description="" type="\BCA\CURL\curl_init()">
+            <type by_reference="false">\BCA\CURL\curl_init()</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="47" namespace="BCA\CURL" package="Default">
+        <name>$url</name>
+        <default><![CDATA[]]></default>
+        <docblock line="42">
+          <description><![CDATA[Base URL]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="42" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="54" namespace="BCA\CURL" package="Default">
+        <name>$options</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="49">
+          <description><![CDATA[cURL Options]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="49" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="61" namespace="BCA\CURL" package="Default">
+        <name>$headers</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="56">
+          <description><![CDATA[HTTP Headers]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="56" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="68" namespace="BCA\CURL" package="Default">
+        <name>$params</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="63">
+          <description><![CDATA[Query Parameters]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="63" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="76" package="BCA/CURL">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="70">
+          <description><![CDATA[Constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="70" name="param" description="Valid URL resource" type="string" variable="$url">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="70" name="param" description="Associative array of query parameters." type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="76">
+          <name>$url</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="76">
+          <name>$params</name>
+          <default><![CDATA[array()]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="91" package="BCA/CURL">
+        <name>__destruct</name>
+        <full_name>__destruct</full_name>
+        <docblock line="88">
+          <description><![CDATA[Destructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="101" package="BCA/CURL">
+        <name>get</name>
+        <full_name>get</full_name>
+        <docblock line="96">
+          <description><![CDATA[GET HTTP Request]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="96" name="return" description="" type="\BCA\CURL\Response">
+            <type by_reference="false">\BCA\CURL\Response</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="119" package="BCA/CURL">
+        <name>post</name>
+        <full_name>post</full_name>
+        <docblock line="114">
+          <description><![CDATA[POST HTTP Request]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="return" description="" type="\BCA\CURL\Response">
+            <type by_reference="false">\BCA\CURL\Response</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="137" package="BCA/CURL">
+        <name>put</name>
+        <full_name>put</full_name>
+        <docblock line="132">
+          <description><![CDATA[PUT HTTP Request]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="132" name="return" description="" type="\BCA\CURL\Response">
+            <type by_reference="false">\BCA\CURL\Response</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="156" package="BCA/CURL">
+        <name>delete</name>
+        <full_name>delete</full_name>
+        <docblock line="151">
+          <description><![CDATA[DELETE HTTP Request]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="151" name="return" description="" type="\BCA\CURL\Response">
+            <type by_reference="false">\BCA\CURL\Response</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="176" package="BCA/CURL">
+        <name>auth</name>
+        <full_name>auth</full_name>
+        <docblock line="167">
+          <description><![CDATA[Set HTTP username and password]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="167" name="param" description="Username." type="string" variable="$username">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="167" name="param" description="Password." type="string" variable="$password">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="167" name="param" description="Any valid value for CURLOPT_HTTPAUTH." type="string" variable="$type">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="167" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="176">
+          <name>$username</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="176">
+          <name>$password</name>
+          <default><![CDATA['']]></default>
+          <type/>
+        </argument>
+        <argument line="176">
+          <name>$type</name>
+          <default><![CDATA['any']]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="191" package="BCA/CURL">
+        <name>cookies</name>
+        <full_name>cookies</full_name>
+        <docblock line="184">
+          <description><![CDATA[Set Session Cookies]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="184" name="param" description="Associative array of cookie keys and values." type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="184" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="191">
+          <name>$params</name>
+          <default><![CDATA[array()]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="210" package="BCA/CURL">
+        <name>header</name>
+        <full_name>header</full_name>
+        <docblock line="202">
+          <description><![CDATA[Set HTTP Header]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="202" name="param" description="Key of HTTP header." type="string" variable="$header">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="202" name="param" description="Value of HTTP header." type="string" variable="$content">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="202" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="210">
+          <name>$header</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="210">
+          <name>$content</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="225" package="BCA/CURL">
+        <name>option</name>
+        <full_name>option</full_name>
+        <docblock line="217">
+          <description><![CDATA[Set cURL Option]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="217" name="param" description="Key of cURL option to set or override." type="string" variable="$code">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="217" name="param" description="New value of cURL option." type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="217" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="225">
+          <name>$code</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="225">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="244" package="BCA/CURL">
+        <name>param</name>
+        <full_name>param</full_name>
+        <docblock line="236">
+          <description><![CDATA[Set a Parameter]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="236" name="param" description="Parameter key on which value should be set." type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="236" name="param" description="Key on which value should be set." type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="236" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="244">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="244">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="258" package="BCA/CURL">
+        <name>params</name>
+        <full_name>params</full_name>
+        <docblock line="251">
+          <description><![CDATA[Set Multiple Parameters via Array]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="251" name="param" description="Associative array of parameters." type="array" variable="$params">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="251" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="258">
+          <name>$params</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="274" package="BCA/CURL">
+        <name>ssl</name>
+        <full_name>ssl</full_name>
+        <docblock line="265">
+          <description><![CDATA[Force SSL Usage and Set SSL Options]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="265" name="param" description="Require a valid certificate." type="boolean" variable="$verify_peer">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="265" name="param" description="Require a hostname match of certificate." type="integer" variable="$verify_host">
+            <type by_reference="false">integer</type>
+          </tag>
+          <tag line="265" name="param" description="Local path to certificate(s) file." type="string" variable="$path_to_cert">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="265" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="274">
+          <name>$verify_peer</name>
+          <default><![CDATA[true]]></default>
+          <type/>
+        </argument>
+        <argument line="274">
+          <name>$verify_host</name>
+          <default><![CDATA[2]]></default>
+          <type/>
+        </argument>
+        <argument line="274">
+          <name>$path_to_cert</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="BCA\CURL" line="300" package="BCA/CURL">
+        <name>_execute</name>
+        <full_name>_execute</full_name>
+        <docblock line="295">
+          <description><![CDATA[Execute Request and Return Result]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="295" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="BCA\CURL" line="347" package="BCA/CURL">
+        <name>_hasExtCurl</name>
+        <full_name>_hasExtCurl</full_name>
+        <docblock line="342">
+          <description><![CDATA[Was PHP Built with cURL Support?]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="342" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="BCA\CURL" line="359" package="BCA/CURL">
+        <name>_hasOption</name>
+        <full_name>_hasOption</full_name>
+        <docblock line="352">
+          <description><![CDATA[Does Instance Have a Given Option Set?]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="352" name="param" description="Integer representation of cURL option." type="int" variable="$code">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="352" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="359">
+          <name>$code</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="BCA\CURL" line="371" package="BCA/CURL">
+        <name>_hasParam</name>
+        <full_name>_hasParam</full_name>
+        <docblock line="364">
+          <description><![CDATA[Does Instance Have a Given Option Set?]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="364" name="param" description="Key to check in parameter array." type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="364" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="371">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="BCA\CURL" line="383" package="BCA/CURL">
+        <name>_method</name>
+        <full_name>_method</full_name>
+        <docblock line="376">
+          <description><![CDATA[Set HTTP Method]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="376" name="param" description="Valid HTTP method." type="string" variable="$method">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="376" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="383">
+          <name>$method</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="BCA\CURL" line="397" package="BCA/CURL">
+        <name>_options</name>
+        <full_name>_options</full_name>
+        <docblock line="390">
+          <description><![CDATA[Set cURL Multiple Options by Array]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="390" name="param" description="Associative array of options and values." type="array" variable="$options">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="390" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="397">
+          <name>$options</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="BCA\CURL" line="413" package="BCA/CURL">
+        <name>_startSession</name>
+        <full_name>_startSession</full_name>
+        <docblock line="406">
+          <description><![CDATA[Start cURL Session]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="406" name="param" description="Valid URL resource." type="string" variable="$url">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="406" name="return" description="" type="self">
+            <type by_reference="false">self</type>
+          </tag>
+        </docblock>
+        <argument line="413">
+          <name>$url</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="Response.php" hash="4c6fe894a9d8ec72ecb6d43be4aa760e" package="BCA/CURL">
+    <docblock line="3">
+      <description><![CDATA[cURL Library]]></description>
+      <long-description><![CDATA[<p>PHP Version 5.3</p>]]></long-description>
+      <tag line="3" name="category" description="Library"/>
+      <tag line="3" name="package" description="BCA/CURL"/>
+      <tag line="3" name="author" description="Brodkin CyberArts &lt;support@brodkinca.com&gt;"/>
+      <tag line="3" name="copyright" description="2012 Brodkin CyberArts."/>
+      <tag line="3" name="license" description="All rights reserved."/>
+      <tag line="3" name="version" description="GIT: $Id: 44500bb622fb51e0ad31b51037d20461863ad1fb $"/>
+      <tag line="3" name="link" description="https://github.com/brodkinca/BCA-PHP-CURL" link="https://github.com/brodkinca/BCA-PHP-CURL"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="BCA\CURL" line="29" package="BCA/CURL">
+      <extends/>
+      <name>Response</name>
+      <full_name>\BCA\CURL\Response</full_name>
+      <docblock line="19">
+        <description><![CDATA[cURL Response Class]]></description>
+        <long-description><![CDATA[]]></long-description>
+        <tag line="19" name="category" description="Library"/>
+        <tag line="19" name="package" description="BCA/CURL"/>
+        <tag line="19" name="author" description="Brodkin CyberArts &lt;support@brodkinca.com&gt;"/>
+        <tag line="19" name="copyright" description="2012 Brodkin CyberArts."/>
+        <tag line="19" name="license" description="All rights reserved."/>
+        <tag line="19" name="link" description="https://github.com/brodkinca/BCA-PHP-CURL" link="https://github.com/brodkinca/BCA-PHP-CURL"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="36" namespace="BCA\CURL" package="Default">
+        <name>$_response</name>
+        <default><![CDATA[]]></default>
+        <docblock line="31">
+          <description><![CDATA[Raw Response Data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="31" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="43" namespace="BCA\CURL" package="Default">
+        <name>$_info</name>
+        <default><![CDATA[]]></default>
+        <docblock line="38">
+          <description><![CDATA[cURL Stats Returned by curl_info()]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="38" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="50" namespace="BCA\CURL" package="Default">
+        <name>$_error</name>
+        <default><![CDATA[]]></default>
+        <docblock line="45">
+          <description><![CDATA[cURL Error Information]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="45" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="59" package="BCA/CURL">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="52">
+          <description><![CDATA[Populate Data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="52" name="param" description="Data received from cURL request." type="string" variable="$response">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="52" name="param" description="Array returned from curl_getinfo()." type="array" variable="$info">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="52" name="param" description="Array of error data, if applicable." type="array" variable="$error">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="59">
+          <name>$response</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="59">
+          <name>$info</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+        <argument line="59">
+          <name>$error</name>
+          <default><![CDATA[array()]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="75" package="BCA/CURL">
+        <name>__get</name>
+        <full_name>__get</full_name>
+        <docblock line="68">
+          <description><![CDATA[Get cURL Response Data]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="68" name="param" description="Key returned by curl_getinfo()." type="string" variable="$key">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="68" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="75">
+          <name>$key</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="89" package="BCA/CURL">
+        <name>__toString</name>
+        <full_name>__toString</full_name>
+        <docblock line="84">
+          <description><![CDATA[Return Response as String]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="84" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="99" package="BCA/CURL">
+        <name>debug</name>
+        <full_name>debug</full_name>
+        <docblock line="94">
+          <description><![CDATA[Print Debug Message to Screen]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="94" name="return" description="" type="null">
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="126" package="BCA/CURL">
+        <name>status</name>
+        <full_name>status</full_name>
+        <docblock line="121">
+          <description><![CDATA[HTTP Status Code of Response]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="121" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="BCA\CURL" line="138" package="BCA/CURL">
+        <name>success</name>
+        <full_name>success</full_name>
+        <docblock line="131">
+          <description><![CDATA[Was Request Successful]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="131" name="param" description="Requires a 200-level response whem truthy." type="boolean" variable="$strict">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="131" name="return" description="" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="138">
+          <name>$strict</name>
+          <default><![CDATA[false]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <package name="BCA/CURL" full_name="BCA/CURL"/>
+  <package name="Default" full_name="Default"/>
+  <namespace name="BCA" full_name="BCA">
+    <namespace name="CURL" full_name="BCA\CURL"/>
+  </namespace>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

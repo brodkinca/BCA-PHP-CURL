@@ -1,0 +1,508 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>BCA cURL Wrapper Library » \BCA\CURL\CURL</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">BCA cURL Wrapper Library</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/BCA.html"><i class="icon-th"></i> BCA</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/BCA.CURL.html"><i class="icon-folder-open"></i> BCA/CURL</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">0</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___destruct" title="__destruct :: Destructor"><span class="description">Destructor</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method_auth" title="auth :: Set HTTP username and password"><span class="description">Set HTTP username and password</span><pre>auth()</pre></a></li>
+<li class="method public "><a href="#method_cookies" title="cookies :: Set Session Cookies"><span class="description">Set Session Cookies</span><pre>cookies()</pre></a></li>
+<li class="method public "><a href="#method_delete" title="delete :: DELETE HTTP Request"><span class="description">DELETE HTTP Request</span><pre>delete()</pre></a></li>
+<li class="method public "><a href="#method_get" title="get :: GET HTTP Request"><span class="description">GET HTTP Request</span><pre>get()</pre></a></li>
+<li class="method public "><a href="#method_header" title="header :: Set HTTP Header"><span class="description">Set HTTP Header</span><pre>header()</pre></a></li>
+<li class="method public "><a href="#method_option" title="option :: Set cURL Option"><span class="description">Set cURL Option</span><pre>option()</pre></a></li>
+<li class="method public "><a href="#method_param" title="param :: Set a Parameter"><span class="description">Set a Parameter</span><pre>param()</pre></a></li>
+<li class="method public "><a href="#method_params" title="params :: Set Multiple Parameters via Array"><span class="description">Set Multiple Parameters via Array</span><pre>params()</pre></a></li>
+<li class="method public "><a href="#method_post" title="post :: POST HTTP Request"><span class="description">POST HTTP Request</span><pre>post()</pre></a></li>
+<li class="method public "><a href="#method_put" title="put :: PUT HTTP Request"><span class="description">PUT HTTP Request</span><pre>put()</pre></a></li>
+<li class="method public "><a href="#method_ssl" title="ssl :: Force SSL Usage and Set SSL Options"><span class="description">Force SSL Usage and Set SSL Options</span><pre>ssl()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="method private "><a href="#method__execute" title="_execute :: Execute Request and Return Result"><span class="description">Execute Request and Return Result</span><pre>_execute()</pre></a></li>
+<li class="method private "><a href="#method__hasExtCurl" title="_hasExtCurl :: Was PHP Built with cURL Support?"><span class="description">Was PHP Built with cURL Support?</span><pre>_hasExtCurl()</pre></a></li>
+<li class="method private "><a href="#method__hasOption" title="_hasOption :: Does Instance Have a Given Option Set?"><span class="description">Does Instance Have a Given Option Set?</span><pre>_hasOption()</pre></a></li>
+<li class="method private "><a href="#method__hasParam" title="_hasParam :: Does Instance Have a Given Option Set?"><span class="description">Does Instance Have a Given Option Set?</span><pre>_hasParam()</pre></a></li>
+<li class="method private "><a href="#method__method" title="_method :: Set HTTP Method"><span class="description">Set HTTP Method</span><pre>_method()</pre></a></li>
+<li class="method private "><a href="#method__options" title="_options :: Set cURL Multiple Options by Array"><span class="description">Set cURL Multiple Options by Array</span><pre>_options()</pre></a></li>
+<li class="method private "><a href="#method__startSession" title="_startSession :: Start cURL Session"><span class="description">Start cURL Session</span><pre>_startSession()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property_headers" title="$headers :: HTTP Headers"><span class="description">HTTP Headers</span><pre>$headers</pre></a></li>
+<li class="property protected "><a href="#property_options" title="$options :: cURL Options"><span class="description">cURL Options</span><pre>$options</pre></a></li>
+<li class="property protected "><a href="#property_params" title="$params :: Query Parameters"><span class="description">Query Parameters</span><pre>$params</pre></a></li>
+<li class="property protected "><a href="#property_session" title="$session :: cURL Session Handler"><span class="description">cURL Session Handler</span><pre>$session</pre></a></li>
+<li class="property protected "><a href="#property_url" title="$url :: Base URL"><span class="description">Base URL</span><pre>$url</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\BCA\CURL\CURL"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/BCA.html">BCA</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/BCA.CURL.html">CURL</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/BCA.CURL.CURL.html">CURL</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">cURL Request Class</p>
+<div class="details">
+<div class="long_description"><p>Work with remote servers via cURL much easier than using the native PHP bindings.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>category</th>
+<td>Library</td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/BCA.CURL.html">BCA/CURL</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:support@brodkinca.com">Brodkin CyberArts</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:email@philsturgeon.co.uk">Philip Sturgeon</a></td>
+</tr>
+<tr>
+<th>copyright</th>
+<td>2012 Brodkin CyberArts.</td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="">All rights reserved.</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>GIT: $Id$</td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="https://github.com/brodkinca/BCA-PHP-CURL">https://github.com/brodkinca/BCA-PHP-CURL</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>Constructor</h2>
+<pre>__construct(string $url, array $params) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><p>Valid URL resource</p></div>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Associative array of query parameters.</p></div>
+</div></div>
+</div>
+<a id="method___destruct"></a><div class="element clickable method public method___destruct" data-toggle="collapse" data-target=".method___destruct .collapse">
+<h2>Destructor</h2>
+<pre>__destruct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_auth"></a><div class="element clickable method public method_auth" data-toggle="collapse" data-target=".method_auth .collapse">
+<h2>Set HTTP username and password</h2>
+<pre>auth(string $username, string $password, string $type) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$username</h4>
+<code>string</code><p>Username.</p></div>
+<div class="subelement argument">
+<h4>$password</h4>
+<code>string</code><p>Password.</p></div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>Any valid value for CURLOPT_HTTPAUTH.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method_cookies"></a><div class="element clickable method public method_cookies" data-toggle="collapse" data-target=".method_cookies .collapse">
+<h2>Set Session Cookies</h2>
+<pre>cookies(array $params) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Associative array of cookie keys and values.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method_delete"></a><div class="element clickable method public method_delete" data-toggle="collapse" data-target=".method_delete .collapse">
+<h2>DELETE HTTP Request</h2>
+<pre>delete() : <a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_get"></a><div class="element clickable method public method_get" data-toggle="collapse" data-target=".method_get .collapse">
+<h2>GET HTTP Request</h2>
+<pre>get() : <a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_header"></a><div class="element clickable method public method_header" data-toggle="collapse" data-target=".method_header .collapse">
+<h2>Set HTTP Header</h2>
+<pre>header(string $header, string $content) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$header</h4>
+<code>string</code><p>Key of HTTP header.</p></div>
+<div class="subelement argument">
+<h4>$content</h4>
+<code>string</code><p>Value of HTTP header.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method_option"></a><div class="element clickable method public method_option" data-toggle="collapse" data-target=".method_option .collapse">
+<h2>Set cURL Option</h2>
+<pre>option(string $code, string $value) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>string</code><p>Key of cURL option to set or override.</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code><p>New value of cURL option.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method_param"></a><div class="element clickable method public method_param" data-toggle="collapse" data-target=".method_param .collapse">
+<h2>Set a Parameter</h2>
+<pre>param(string $key, string $value) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Parameter key on which value should be set.</p></div>
+<div class="subelement argument">
+<h4>$value</h4>
+<code>string</code><p>Key on which value should be set.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method_params"></a><div class="element clickable method public method_params" data-toggle="collapse" data-target=".method_params .collapse">
+<h2>Set Multiple Parameters via Array</h2>
+<pre>params(array $params) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$params</h4>
+<code>array</code><p>Associative array of parameters.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method_post"></a><div class="element clickable method public method_post" data-toggle="collapse" data-target=".method_post .collapse">
+<h2>POST HTTP Request</h2>
+<pre>post() : <a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_put"></a><div class="element clickable method public method_put" data-toggle="collapse" data-target=".method_put .collapse">
+<h2>PUT HTTP Request</h2>
+<pre>put() : <a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.Response.html">\BCA\CURL\Response</a></code></div>
+</div></div>
+</div>
+<a id="method_ssl"></a><div class="element clickable method public method_ssl" data-toggle="collapse" data-target=".method_ssl .collapse">
+<h2>Force SSL Usage and Set SSL Options</h2>
+<pre>ssl(boolean $verify_peer, integer $verify_host, string $path_to_cert) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$verify_peer</h4>
+<code>boolean</code><p>Require a valid certificate.</p></div>
+<div class="subelement argument">
+<h4>$verify_host</h4>
+<code>integer</code><p>Require a hostname match of certificate.</p></div>
+<div class="subelement argument">
+<h4>$path_to_cert</h4>
+<code>string</code><p>Local path to certificate(s) file.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method__execute"></a><div class="element clickable method private method__execute" data-toggle="collapse" data-target=".method__execute .collapse">
+<h2>Execute Request and Return Result</h2>
+<pre>_execute() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method__hasExtCurl"></a><div class="element clickable method private method__hasExtCurl" data-toggle="collapse" data-target=".method__hasExtCurl .collapse">
+<h2>Was PHP Built with cURL Support?</h2>
+<pre>_hasExtCurl() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method__hasOption"></a><div class="element clickable method private method__hasOption" data-toggle="collapse" data-target=".method__hasOption .collapse">
+<h2>Does Instance Have a Given Option Set?</h2>
+<pre>_hasOption(int $code) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>int</code><p>Integer representation of cURL option.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method__hasParam"></a><div class="element clickable method private method__hasParam" data-toggle="collapse" data-target=".method__hasParam .collapse">
+<h2>Does Instance Have a Given Option Set?</h2>
+<pre>_hasParam(string $key) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$key</h4>
+<code>string</code><p>Key to check in parameter array.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method__method"></a><div class="element clickable method private method__method" data-toggle="collapse" data-target=".method__method .collapse">
+<h2>Set HTTP Method</h2>
+<pre>_method(string $method) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$method</h4>
+<code>string</code><p>Valid HTTP method.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method__options"></a><div class="element clickable method private method__options" data-toggle="collapse" data-target=".method__options .collapse">
+<h2>Set cURL Multiple Options by Array</h2>
+<pre>_options(array $options) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$options</h4>
+<code>array</code><p>Associative array of options and values.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<a id="method__startSession"></a><div class="element clickable method private method__startSession" data-toggle="collapse" data-target=".method__startSession .collapse">
+<h2>Start cURL Session</h2>
+<pre>_startSession(string $url) : <a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$url</h4>
+<code>string</code><p>Valid URL resource.</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/BCA.CURL.CURL.html">\BCA\CURL\CURL</a></code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_headers"> </a><div class="element clickable property protected property_headers" data-toggle="collapse" data-target=".property_headers .collapse">
+<h2>HTTP Headers</h2>
+<pre>$headers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_options"> </a><div class="element clickable property protected property_options" data-toggle="collapse" data-target=".property_options .collapse">
+<h2>cURL Options</h2>
+<pre>$options : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_params"> </a><div class="element clickable property protected property_params" data-toggle="collapse" data-target=".property_params .collapse">
+<h2>Query Parameters</h2>
+<pre>$params : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_session"> </a><div class="element clickable property protected property_session" data-toggle="collapse" data-target=".property_session .collapse">
+<h2>cURL Session Handler</h2>
+<pre>$session : \BCA\CURL\curl_init()</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_url"> </a><div class="element clickable property protected property_url" data-toggle="collapse" data-target=".property_url .collapse">
+<h2>Base URL</h2>
+<pre>$url : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a10</a> and<br>
+            generated on 2012-10-24T21:26:00-07:00.<br></footer></div>
+</div>
+</body>
+</html>
