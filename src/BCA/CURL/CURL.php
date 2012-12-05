@@ -122,6 +122,13 @@ class CURL
     {
         if (!empty($data)) {
             $this->option(CURLOPT_POSTFIELDS, $data);
+
+            // Convert parameter array to query string
+            if (!empty($this->params)) {
+                $params = http_build_query($this->params, null, '&');
+                $this->option(CURLOPT_URL, $this->url.'?'.$params);
+            }
+
         } else {
             // Convert parameter array to query string
             $params = http_build_query($this->params, null, '&');
@@ -146,6 +153,13 @@ class CURL
     {
         if (!empty($data)) {
             $this->option(CURLOPT_POSTFIELDS, $data);
+
+            // Convert parameter array to query string
+            if (!empty($this->params)) {
+                $params = http_build_query($this->params, null, '&');
+                $this->option(CURLOPT_URL, $this->url.'?'.$params);
+            }
+
         } else {
             // Convert parameter array to query string
             $params = http_build_query($this->params, null, '&');
