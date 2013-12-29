@@ -55,7 +55,7 @@ And constructed with the following guidelines:
 Composer users who would like more granular control over upgrades should restrict their installtion to patch updates only using this require key:
 
 ```
-"bca/curl": "2.0.*"
+"bca/curl": "2.1.*"
 ```
 
 For more information on SemVer, please visit http://semver.org/.
