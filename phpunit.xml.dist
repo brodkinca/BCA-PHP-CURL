@@ -11,7 +11,7 @@
          bootstrap="tests/bootstrap.php"
 >
     <php>
-        <const name="REMOTE_TEST_SERVER" value="http://bca-php-curl-tests.pagodabox.com/" />
+        <const name="REMOTE_TEST_SERVER" value="http://bca-php-curl-tests.gopagoda.com/" />
     </php>
     <testsuites>
       <testsuite>
