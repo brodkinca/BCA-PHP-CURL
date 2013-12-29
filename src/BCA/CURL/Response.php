@@ -119,6 +119,25 @@ class Response
     }
 
     /**
+     * Get Error 
+     * @param  string $type : 
+     *                     all -> return (array)
+     *                     code -> reutrn (int) nr of error (CURL erron)
+     *                     message -> return (string) error message    
+     * @return bollean FALSE if no error or if type is unset OR some data
+     */
+    public function getError($type = 'message')
+    {   
+        if($this->_error == null) return false;    
+        
+        if($type == 'all') return $this->_error;
+
+        return isset($this->_error[$type]) ? $this->_error[$type] : false;
+     
+    }
+
+
+    /**
      * HTTP Status Code of Response
      *
      * @return int
