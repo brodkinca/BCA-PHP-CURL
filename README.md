@@ -2,7 +2,11 @@
 
 Work with remote servers via cURL much easier than using the native PHP bindings.
 
+[![Latest Stable Version](https://poser.pugx.org/bca/curl/v/stable.png)](https://packagist.org/packages/bca/curl) 
+[![Total Downloads](https://poser.pugx.org/bca/curl/downloads.png)](https://packagist.org/packages/bca/curl) 
+[![Latest Unstable Version](https://poser.pugx.org/bca/curl/v/unstable.png)](https://packagist.org/packages/bca/curl)
 [![Build Status](https://secure.travis-ci.org/brodkinca/BCA-PHP-CURL.png)](http://travis-ci.org/brodkinca/BCA-PHP-CURL)
+[![License](https://poser.pugx.org/bca/curl/license.png)](https://packagist.org/packages/bca/curl)
 
 ## Requirements
 
