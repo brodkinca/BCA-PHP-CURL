@@ -18,6 +18,11 @@
         <directory>tests</directory>
       </testsuite>
     </testsuites>
+    <filter>
+      <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">src</directory>
+      </whitelist>
+    </filter>
     <logging>
         <log type="coverage-clover" target="/tmp/coverage.xml"/>
     </logging>
@@ -31,11 +36,14 @@
                     <element key="hook">
                       <object class="League\PHPUnitCoverageListener\Hook\Travis"/>
                     </element>
+                    <element key="namespace">
+                        <string>BCA\CURL</string>
+                    </element>
                     <element key="repo_token">
                         <string>tQNpUuikYCJXRPlxyuNC9NXDQqeTR0MhQ</string>
                     </element>
                     <element key="target_url">
-                        <string>https://coveralls.io/api/v1/jobs</string>
+                        <string>http://requestb.in/13n0h3h1</string>
                     </element>
                     <element key="coverage_dir">
                         <string>/tmp</string>
