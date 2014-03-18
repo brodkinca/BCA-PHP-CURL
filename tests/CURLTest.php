@@ -277,9 +277,10 @@ class CURLTest extends \PHPUnit_Framework_TestCase
      */
     public function testSsl()
     {
-        // Bad cert file causes SSL request to fail
         $request = new CURL(REMOTE_TEST_SERVER);
-        $response = $request->ssl(true, 2, tempnam(sys_get_temp_dir(), 'cert'))->get();
-        $this->assertFalse($response->success());
+        $response = $request->ssl(true)->get();
+        $this->assertTrue($response->success());
+        $response = json_decode($response);
+        $this->assertEquals('https', $response->headers->X_FORWARDED_PROTO);
     }
 }
