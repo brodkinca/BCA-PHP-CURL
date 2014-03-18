@@ -2,10 +2,12 @@
 
 Work with remote servers via cURL much easier than using the native PHP bindings.
 
+[![Build Status](https://secure.travis-ci.org/brodkinca/BCA-PHP-CURL.png)](http://travis-ci.org/brodkinca/BCA-PHP-CURL)
+[![Dependencies Status](https://depending.in/brodkinca/BCA-PHP-CURL.png)](http://depending.in/brodkinca/BCA-PHP-CURL)
+[![Coverage Status](https://coveralls.io/repos/brodkinca/BCA-PHP-CURL/badge.png)](https://coveralls.io/r/brodkinca/BCA-PHP-CURL)
+
 [![Latest Stable Version](https://poser.pugx.org/bca/curl/v/stable.png)](https://packagist.org/packages/bca/curl) 
 [![Total Downloads](https://poser.pugx.org/bca/curl/downloads.png)](https://packagist.org/packages/bca/curl) 
-[![Latest Unstable Version](https://poser.pugx.org/bca/curl/v/unstable.png)](https://packagist.org/packages/bca/curl)
-[![Build Status](https://secure.travis-ci.org/brodkinca/BCA-PHP-CURL.png)](http://travis-ci.org/brodkinca/BCA-PHP-CURL)
 [![License](https://poser.pugx.org/bca/curl/license.png)](https://packagist.org/packages/bca/curl)
 
 ## Requirements
