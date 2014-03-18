@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit backupGlobals="false"
          backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="true"
-         bootstrap="tests/bootstrap.php"
+         syntaxCheck="false"
 >
     <php>
         <const name="REMOTE_TEST_SERVER" value="http://bca-php-curl-tests.gopagoda.com/" />
@@ -37,13 +37,13 @@
                       <object class="League\PHPUnitCoverageListener\Hook\Travis"/>
                     </element>
                     <element key="namespace">
-                        <string>BCA\CURL</string>
+                        <string>src\BCA\CURL</string>
                     </element>
                     <element key="repo_token">
                         <string>tQNpUuikYCJXRPlxyuNC9NXDQqeTR0MhQ</string>
                     </element>
                     <element key="target_url">
-                        <string>http://requestb.in/13n0h3h1</string>
+                        <string>https://coveralls.io/api/v1/jobs</string>
                     </element>
                     <element key="coverage_dir">
                         <string>/tmp</string>
