@@ -327,10 +327,26 @@ class CURLTest extends \PHPUnit_Framework_TestCase
      */
     public function testSsl()
     {
+        // No parameters
         $request = new CURL(REMOTE_TEST_SERVER);
-        $response = $request->ssl(true)->get();
+        $response = $request->ssl()->get();
         $this->assertTrue($response->success());
         $response = json_decode($response);
         $this->assertEquals('https', $response->headers->X_FORWARDED_PROTO);
+
+        // Don't verify peer
+        $request = new CURL('http://example.com/');
+        $response = $request->ssl(false)->get();
+        $this->assertTrue($response->success());
+
+        // Verify peer and host
+        $request = new CURL('http://example.com');
+        $response = $request->ssl(true, 2)->get();
+        $this->assertFalse($response->success());
+
+        // Verify peer and host with CA path
+        $request = new CURL('http://example.com');
+        $response = $request->ssl(true, 2, '/dev/null')->get();
+        $this->assertFalse($response->success());
     }
 }
