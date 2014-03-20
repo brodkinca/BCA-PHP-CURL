@@ -30,8 +30,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers BCA\CURL\CURL::get
+     * @covers BCA\CURL\CURL::__construct
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
+     * @covers BCA\CURL\CURL::_hasExtCurl
+     * @covers BCA\CURL\CURL::_hasOption
+     * @covers BCA\CURL\CURL::_method
      * @covers BCA\CURL\CURL::_execute
      */
     public function testGet()
@@ -56,8 +59,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\CURL::post
+     * @covers BCA\CURL\CURL::__construct
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
+     * @covers BCA\CURL\CURL::_hasExtCurl
+     * @covers BCA\CURL\CURL::_hasOption
+     * @covers BCA\CURL\CURL::_method
      * @covers BCA\CURL\CURL::_execute
      */
     public function testPost()
@@ -90,8 +96,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\CURL::put
+     * @covers BCA\CURL\CURL::__construct
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
+     * @covers BCA\CURL\CURL::_hasExtCurl
+     * @covers BCA\CURL\CURL::_hasOption
+     * @covers BCA\CURL\CURL::_method
      * @covers BCA\CURL\CURL::_execute
      */
     public function testPut()
@@ -123,8 +132,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\CURL::delete
+     * @covers BCA\CURL\CURL::__construct
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
+     * @covers BCA\CURL\CURL::_hasExtCurl
+     * @covers BCA\CURL\CURL::_hasOption
+     * @covers BCA\CURL\CURL::_method
      * @covers BCA\CURL\CURL::_execute
      */
     public function testDelete()
@@ -176,6 +188,7 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\CURL::header
+     * @covers BCA\CURL\CURL::_execute
      */
     public function testHeader()
     {
@@ -192,12 +205,27 @@ class CURLTest extends \PHPUnit_Framework_TestCase
      */
     public function testOption()
     {
+        // Named option
         $request = new CURL(REMOTE_TEST_SERVER);
         $response = $request->option(CURLOPT_CONNECTTIMEOUT_MS, 1)->get();
+        $this->assertFalse($response->success());
+
+        // Named option, unprefixed string
+        $request = new CURL(REMOTE_TEST_SERVER);
+        $response = $request->option('CONNECTTIMEOUT_MS', 1)->get();
+        $this->assertFalse($response->success());
+
+        // Numeric option (CURLOPT_CONNECTTIMEOUT_MS)
+        $request = new CURL(REMOTE_TEST_SERVER);
+        $response = $request->option(156, 1)->get();
         $this->assertFalse($response->success());
     }
 
     /**
+     * @covers BCA\CURL\CURL::get
+     * @covers BCA\CURL\CURL::post
+     * @covers BCA\CURL\CURL::put
+     * @covers BCA\CURL\CURL::delete
      * @covers BCA\CURL\CURL::param
      */
     public function testParam()
@@ -232,6 +260,10 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @covers BCA\CURL\CURL::get
+     * @covers BCA\CURL\CURL::post
+     * @covers BCA\CURL\CURL::put
+     * @covers BCA\CURL\CURL::delete
      * @covers BCA\CURL\CURL::params
      */
     public function testParams()
@@ -255,6 +287,15 @@ class CURLTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('bar', $response->_POST->foo);
         $this->assertEquals('baz', $response->_POST->bar);
 
+        // POST with raw data
+        $request = new CURL(REMOTE_TEST_SERVER);
+        $response = $request->params($params)->post('foobar');
+        $this->assertTrue($response->success());
+        $response = json_decode($response);
+        $this->assertEquals('foobar', $response->_RAW);
+        $this->assertEquals('bar', $response->_GET->foo);
+        $this->assertEquals('baz', $response->_GET->bar);
+
         // PUT
         $request = new CURL(REMOTE_TEST_SERVER);
         $response = $request->params($params)->put();
@@ -262,6 +303,15 @@ class CURLTest extends \PHPUnit_Framework_TestCase
         $response = json_decode($response);
         $this->assertEquals('bar', $response->_PUT->foo);
         $this->assertEquals('baz', $response->_PUT->bar);
+
+        // PUT with raw data
+        $request = new CURL(REMOTE_TEST_SERVER);
+        $response = $request->params($params)->put('foobar');
+        $this->assertTrue($response->success());
+        $response = json_decode($response);
+        $this->assertEquals('foobar', $response->_RAW);
+        $this->assertEquals('bar', $response->_GET->foo);
+        $this->assertEquals('baz', $response->_GET->bar);
 
         // DELETE
         $request = new CURL(REMOTE_TEST_SERVER);
@@ -277,10 +327,26 @@ class CURLTest extends \PHPUnit_Framework_TestCase
      */
     public function testSsl()
     {
+        // No parameters
         $request = new CURL(REMOTE_TEST_SERVER);
-        $response = $request->ssl(true)->get();
+        $response = $request->ssl()->get();
         $this->assertTrue($response->success());
         $response = json_decode($response);
         $this->assertEquals('https', $response->headers->X_FORWARDED_PROTO);
+
+        // Don't verify peer
+        $request = new CURL('http://example.com/');
+        $response = $request->ssl(false, false)->get();
+        $this->assertTrue($response->success());
+
+        // Verify peer and host
+        $request = new CURL('http://example.com');
+        $response = $request->ssl(true, 2)->get();
+        $this->assertFalse($response->success());
+
+        // Verify peer and host with CA path
+        $request = new CURL('http://example.com');
+        $response = $request->ssl(true, 2, '/dev/null')->get();
+        $this->assertFalse($response->success());
     }
 }
