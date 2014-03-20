@@ -39,34 +39,20 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $error = array('code' => 6, 'message' => CURLE_COULDNT_RESOLVE_HOST);
-
-        $this->object = new Response(
-            $this->dataResponse, 
-            $this->dataInfo, 
-            $error
-        );
+        $this->object = new Response($this->dataResponse, $this->dataInfo);
     }
 
     /**
      * @covers BCA\CURL\Response::__get
-     * @covers BCA\CURL\Response::__construct
      */
     public function test__get()
     {
-        // Key returns value with correct type
         $this->assertSame('bar', $this->object->foo);
-
-        // Non-existent key return null
-        $this->assertSame(null, $this->object->noexists);
-
-        // HTTP status code
         $this->assertSame(500, $this->object->http_code);
     }
 
     /**
      * @covers BCA\CURL\Response::__toString
-     * @covers BCA\CURL\Response::__construct
      */
     public function test__toString()
     {
@@ -75,19 +61,15 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\Response::debug
-     * @covers BCA\CURL\Response::__construct
      */
     public function test_debug()
     {
-        $this->expectOutputRegex("/Debugger/");
+        $this->expectOutputRegex("/debug/i");
         $this->assertNull($this->object->debug());
-
-        $this->expectOutputRegex("/Errors/");
     }
 
     /**
      * @covers BCA\CURL\Response::status
-     * @covers BCA\CURL\Response::__construct
      */
     public function test_status()
     {
@@ -96,7 +78,6 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\Response::success
-     * @covers BCA\CURL\Response::__construct
      */
     public function test_success()
     {

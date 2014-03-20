@@ -75,11 +75,9 @@ class CURL
      */
     public function __construct($url, array $params=array())
     {
-        // @codeCoverageIgnoreStart
         if ( ! $this->_hasExtCurl()) {
-            trigger_error('cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.', E_USER_ERROR); 
+            trigger_error('cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.', E_USER_ERROR);
         }
-        // @codeCoverageIgnoreEnd
 
         $this->params = $params;
 
@@ -89,8 +87,6 @@ class CURL
 
     /**
      * Destructor
-     *
-     * @codeCoverageIgnore
      */
     public function __destruct()
     {
