@@ -395,18 +395,6 @@ class CURL
     }
 
     /**
-     * Does Instance Have a Given Option Set?
-     *
-     * @param string $key Key to check in parameter array.
-     *
-     * @return boolean
-     */
-    private function _hasParam($key)
-    {
-        return isset($this->params["$key"]);
-    }
-
-    /**
      * Set HTTP Method
      *
      * @param string $method Valid HTTP method.
@@ -416,22 +404,6 @@ class CURL
     private function _method($method)
     {
         $this->option(CURLOPT_CUSTOMREQUEST, strtoupper($method));
-
-        return $this;
-    }
-
-    /**
-     * Set cURL Multiple Options by Array
-     *
-     * @param array $options Associative array of options and values.
-     *
-     * @return self
-     */
-    private function _options(array $options)
-    {
-        foreach ($options as $key => $value) {
-            $this->option($key, $value);
-        }
 
         return $this;
     }
