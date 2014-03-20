@@ -307,7 +307,6 @@ class CURL
 
         if ($verify_peer) {
             $this->option(CURLOPT_SSL_VERIFYPEER, true);
-            $this->option(CURLOPT_SSL_VERIFYHOST, $verify_host);
             if (isset($path_to_cert)) {
                 $path_to_cert = realpath($path_to_cert);
                 $this->option(CURLOPT_CAINFO, $path_to_cert);
@@ -315,6 +314,8 @@ class CURL
         } else {
             $this->option(CURLOPT_SSL_VERIFYPEER, false);
         }
+
+        $this->option(CURLOPT_SSL_VERIFYHOST, $verify_host);
 
         return $this;
     }
