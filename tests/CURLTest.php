@@ -205,8 +205,19 @@ class CURLTest extends \PHPUnit_Framework_TestCase
      */
     public function testOption()
     {
+        // Named option
         $request = new CURL(REMOTE_TEST_SERVER);
         $response = $request->option(CURLOPT_CONNECTTIMEOUT_MS, 1)->get();
+        $this->assertFalse($response->success());
+
+        // Named option, unprefixed string
+        $request = new CURL(REMOTE_TEST_SERVER);
+        $response = $request->option('CONNECTTIMEOUT_MS', 1)->get();
+        $this->assertFalse($response->success());
+
+        // Numeric option (CURLOPT_CONNECTTIMEOUT_MS)
+        $request = new CURL(REMOTE_TEST_SERVER);
+        $response = $request->option(156, 1)->get();
         $this->assertFalse($response->success());
     }
 
