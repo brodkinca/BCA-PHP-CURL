@@ -31,7 +31,6 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::get
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
      * @covers BCA\CURL\CURL::_execute
      */
     public function testGet()
@@ -57,7 +56,6 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::post
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
      * @covers BCA\CURL\CURL::_execute
      */
     public function testPost()
@@ -91,7 +89,6 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::put
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
      * @covers BCA\CURL\CURL::_execute
      */
     public function testPut()
@@ -124,7 +121,6 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::delete
      * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_options
      * @covers BCA\CURL\CURL::_execute
      */
     public function testDelete()
