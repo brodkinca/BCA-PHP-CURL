@@ -276,6 +276,15 @@ class CURLTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('bar', $response->_POST->foo);
         $this->assertEquals('baz', $response->_POST->bar);
 
+        // POST with raw data
+        $request = new CURL(REMOTE_TEST_SERVER);
+        $response = $request->params($params)->post('foobar');
+        $this->assertTrue($response->success());
+        $response = json_decode($response);
+        $this->assertEquals('foobar', $response->_RAW);
+        $this->assertEquals('bar', $response->_GET->foo);
+        $this->assertEquals('baz', $response->_GET->bar);
+
         // PUT
         $request = new CURL(REMOTE_TEST_SERVER);
         $response = $request->params($params)->put();
