@@ -25,5 +25,6 @@
   </filter>
   <logging>
     <log type="coverage-html" target="coverage"/>
+    <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
   </logging>
 </phpunit>
