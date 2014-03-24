@@ -86,14 +86,6 @@ class CURL
     }
 
     /**
-     * Destructor
-     */
-    public function __destruct()
-    {
-        curl_close($this->session);
-    }
-
-    /**
      * GET HTTP Request
      *
      * @return Response
