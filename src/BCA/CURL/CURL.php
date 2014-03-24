@@ -75,14 +75,14 @@ class CURL
      */
     public function __construct($url, array $params=array())
     {
-        if ( ! $this->_hasExtCurl()) {
+        if ( ! $this->hasExtCurl()) {
             trigger_error('cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.', E_USER_ERROR);
         }
 
         $this->params = $params;
 
         // Create Session
-        $this->_startSession($url);
+        $this->startSession($url);
     }
 
     /**
@@ -106,9 +106,9 @@ class CURL
             $this->option(CURLOPT_URL, $this->url.'?'.$params);
         }
 
-        $this->_method('get');
+        $this->method('get');
 
-        return $this->_execute();
+        return $this->execute();
     }
 
     /**
@@ -135,11 +135,11 @@ class CURL
             $this->option(CURLOPT_POSTFIELDS, $params);
         }
 
-        $this->_method('post');
+        $this->method('post');
 
         $this->option(CURLOPT_POST, true);
 
-        return $this->_execute();
+        return $this->execute();
     }
 
     /**
@@ -166,12 +166,12 @@ class CURL
             $this->option(CURLOPT_POSTFIELDS, $params);
         }
 
-        $this->_method('put');
+        $this->method('put');
 
         // Overrides $_POST with PUT data
         $this->option(CURLOPT_HTTPHEADER, array('X-HTTP-Method-Override: PUT'));
 
-        return $this->_execute();
+        return $this->execute();
     }
 
     /**
@@ -185,9 +185,9 @@ class CURL
         $params = http_build_query($this->params, null, '&');
         $this->option(CURLOPT_POSTFIELDS, $params);
 
-        $this->_method('delete');
+        $this->method('delete');
 
-        return $this->_execute();
+        return $this->execute();
     }
 
     /**
@@ -325,19 +325,19 @@ class CURL
      *
      * @return mixed
      */
-    private function _execute()
+    private function execute()
     {
         // Set two default options, and merge any extra ones in
-        if (!$this->_hasOption(CURLOPT_TIMEOUT)) {
+        if (!$this->hasOption(CURLOPT_TIMEOUT)) {
             $this->option(CURLOPT_TIMEOUT, 30);
         }
-        if (!$this->_hasOption(CURLOPT_RETURNTRANSFER)) {
+        if (!$this->hasOption(CURLOPT_RETURNTRANSFER)) {
             $this->option(CURLOPT_RETURNTRANSFER, true);
         }
-        if (!$this->_hasOption(CURLOPT_FAILONERROR)) {
+        if (!$this->hasOption(CURLOPT_FAILONERROR)) {
             $this->option(CURLOPT_FAILONERROR, true);
         }
-        if (!$this->_hasOption(CURLOPT_USERAGENT)) {
+        if (!$this->hasOption(CURLOPT_USERAGENT)) {
             $this->option(
                 CURLOPT_USERAGENT,
                 'BCA cURL http://git.io/kTMBLg'
@@ -346,7 +346,7 @@ class CURL
 
         // Only set follow location if not running securely
         if (!ini_get('safe_mode') && !ini_get('open_basedir')) {
-            if (!$this->_hasOption(CURLOPT_FOLLOWLOCATION)) {
+            if (!$this->hasOption(CURLOPT_FOLLOWLOCATION)) {
                 $this->option(CURLOPT_FOLLOWLOCATION, true);
             }
         }
@@ -378,7 +378,7 @@ class CURL
      *
      * @return boolean
      */
-    private function _hasExtCurl()
+    private function hasExtCurl()
     {
         return function_exists('curl_init');
     }
@@ -390,7 +390,7 @@ class CURL
      *
      * @return boolean
      */
-    private function _hasOption($code)
+    private function hasOption($code)
     {
         return isset($this->options[$code]);
     }
@@ -402,7 +402,7 @@ class CURL
      *
      * @return self
      */
-    private function _method($method)
+    private function method($method)
     {
         $this->option(CURLOPT_CUSTOMREQUEST, strtoupper($method));
 
@@ -416,7 +416,7 @@ class CURL
      *
      * @return self
      */
-    private function _startSession($url)
+    private function startSession($url)
     {
         $this->url = $url;
         $this->session = curl_init($this->url);
