@@ -31,11 +31,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::get
      * @covers BCA\CURL\CURL::__construct
-     * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_hasExtCurl
-     * @covers BCA\CURL\CURL::_hasOption
-     * @covers BCA\CURL\CURL::_method
-     * @covers BCA\CURL\CURL::_execute
+     * @covers BCA\CURL\CURL::startSession
+     * @covers BCA\CURL\CURL::hasExtCurl
+     * @covers BCA\CURL\CURL::hasOption
+     * @covers BCA\CURL\CURL::method
+     * @covers BCA\CURL\CURL::execute
      */
     public function testGet()
     {
@@ -60,11 +60,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::post
      * @covers BCA\CURL\CURL::__construct
-     * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_hasExtCurl
-     * @covers BCA\CURL\CURL::_hasOption
-     * @covers BCA\CURL\CURL::_method
-     * @covers BCA\CURL\CURL::_execute
+     * @covers BCA\CURL\CURL::startSession
+     * @covers BCA\CURL\CURL::hasExtCurl
+     * @covers BCA\CURL\CURL::hasOption
+     * @covers BCA\CURL\CURL::method
+     * @covers BCA\CURL\CURL::execute
      */
     public function testPost()
     {
@@ -97,11 +97,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::put
      * @covers BCA\CURL\CURL::__construct
-     * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_hasExtCurl
-     * @covers BCA\CURL\CURL::_hasOption
-     * @covers BCA\CURL\CURL::_method
-     * @covers BCA\CURL\CURL::_execute
+     * @covers BCA\CURL\CURL::startSession
+     * @covers BCA\CURL\CURL::hasExtCurl
+     * @covers BCA\CURL\CURL::hasOption
+     * @covers BCA\CURL\CURL::method
+     * @covers BCA\CURL\CURL::execute
      */
     public function testPut()
     {
@@ -133,11 +133,11 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::delete
      * @covers BCA\CURL\CURL::__construct
-     * @covers BCA\CURL\CURL::_startSession
-     * @covers BCA\CURL\CURL::_hasExtCurl
-     * @covers BCA\CURL\CURL::_hasOption
-     * @covers BCA\CURL\CURL::_method
-     * @covers BCA\CURL\CURL::_execute
+     * @covers BCA\CURL\CURL::startSession
+     * @covers BCA\CURL\CURL::hasExtCurl
+     * @covers BCA\CURL\CURL::hasOption
+     * @covers BCA\CURL\CURL::method
+     * @covers BCA\CURL\CURL::execute
      */
     public function testDelete()
     {
@@ -188,7 +188,7 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\CURL::header
-     * @covers BCA\CURL\CURL::_execute
+     * @covers BCA\CURL\CURL::execute
      */
     public function testHeader()
     {
