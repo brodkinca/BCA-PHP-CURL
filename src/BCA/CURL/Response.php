@@ -106,14 +106,14 @@ class Response
         echo "=============================================\n";
         echo "Response\n";
         echo "=============================================\n";
-        echo nl2br(htmlentities($this->response)) . "\n\n";
+        echo $this->response."\n\n";
 
         if ($this->error) {
             echo "=============================================\n";
             echo "Errors\n";
             echo "=============================================\n";
-            echo "<strong>Code:</strong> ".$this->error['code']."<br/>\n";
-            echo "<strong>Message:</strong> ".$this->error['message']."<br/>\n\n";
+            echo "Code: ".$this->error['code']."\n";
+            echo "Message: ".$this->error['message']."\n\n";
         }
 
         echo "=============================================\n";
