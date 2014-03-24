@@ -120,7 +120,12 @@ class Response
         echo "Info\n";
         echo "=============================================\n";
         foreach ($this->info as $key => $value) {
-            echo ucwords(str_replace('_', ' ', $key)).": ".$value."\n";
+            echo ucwords(str_replace('_', ' ', $key)).": ";
+            if (is_array($value)) {
+                echo implode(', ', $value)."\n";
+            } else {
+                echo $value."\n";
+            }
         }
 
         echo "\n</pre>";
