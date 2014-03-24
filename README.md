@@ -58,7 +58,7 @@ And constructed with the following guidelines:
 * New additions without breaking backward compatibility bumps the minor (and resets the patch)
 * Bug fixes and misc changes bump the patch
 
-Composer users who would like more granular control over upgrades should restrict their installtion to patch updates only using this require key:
+Composer users who would like more granular control over upgrades should restrict their installation to patch updates only using this require key:
 
 ```
 "bca/curl": "2.1.*"
