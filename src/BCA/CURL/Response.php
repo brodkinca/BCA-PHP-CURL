@@ -139,7 +139,7 @@ class Response
     /**
      * Was Request Successful
      *
-     * @param boolean $strict Requires a 200-level response whem truthy.
+     * @param boolean $strict Requires a 200-level response when truthy.
      *
      * @return boolean
      */
