@@ -323,7 +323,7 @@ class CURL
     /**
      * Execute Request and Return Result
      *
-     * @return mixed
+     * @return Response
      */
     private function execute()
     {
