@@ -73,9 +73,9 @@ class CURL
      * @param string $url    Valid URL resource
      * @param array  $params Associative array of query parameters.
      */
-    public function __construct($url, array $params=array())
+    public function __construct($url, array $params = array())
     {
-        if ( ! $this->hasExtCurl()) {
+        if (!$this->hasExtCurl()) {
             trigger_error('cURL Class - PHP was not built with cURL enabled. Rebuild PHP with --with-curl to use cURL.', E_USER_ERROR);
         }
 
@@ -118,7 +118,7 @@ class CURL
      *
      * @return Response
      */
-    public function post($data=null)
+    public function post($data = null)
     {
         if (!empty($data)) {
             $this->option(CURLOPT_POSTFIELDS, $data);
@@ -149,7 +149,7 @@ class CURL
      *
      * @return Response
      */
-    public function put($data=null)
+    public function put($data = null)
     {
         if (!empty($data)) {
             $this->option(CURLOPT_POSTFIELDS, $data);
@@ -423,5 +423,4 @@ class CURL
 
         return $this;
     }
-
 }

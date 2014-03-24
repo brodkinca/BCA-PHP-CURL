@@ -56,7 +56,7 @@ class Response
      * @param array  $info     Array returned from curl_getinfo().
      * @param array  $error    Array of error data, if applicable.
      */
-    public function __construct($response, array $info, array $error=array())
+    public function __construct($response, array $info, array $error = array())
     {
         settype($response, 'string');
 
@@ -143,7 +143,7 @@ class Response
      *
      * @return boolean
      */
-    public function success($strict=false)
+    public function success($strict = false)
     {
         $status_code = substr($this->status(), 0, 1);
 
@@ -153,5 +153,4 @@ class Response
             return ($status_code === '2' || $status_code === '3') ? true : false;
         }
     }
-
 }
