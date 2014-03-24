@@ -33,21 +33,21 @@ class Response
      *
      * @var string
      */
-    private $_response;
+    private $response;
 
     /**
-     * cURL Stats Returned by curl_info()
+     * cURL Stats Returned by curlinfo()
      *
      * @var array
      */
-    private $_info;
+    private $info;
 
     /**
      * cURL Error Information
      *
      * @var array
      */
-    private $_error;
+    private $error;
 
     /**
      * Populate Data
@@ -60,9 +60,9 @@ class Response
     {
         settype($response, 'string');
 
-        $this->_response = $response;
-        $this->_info = $info;
-        $this->_error = $error;
+        $this->response = $response;
+        $this->info = $info;
+        $this->error = $error;
     }
 
     /**
@@ -74,8 +74,8 @@ class Response
      */
     public function __get($key)
     {
-        if (isset($this->_info["$key"])) {
-            return $this->_info["$key"];
+        if (isset($this->info["$key"])) {
+            return $this->info["$key"];
         }
 
         return null;
@@ -88,7 +88,7 @@ class Response
      */
     public function __toString()
     {
-        return $this->_response;
+        return $this->response;
     }
 
     /**
@@ -102,19 +102,19 @@ class Response
         echo "<h2>CURL Request Debugger</h2>\n";
         echo "=============================================<br/>\n";
         echo "<h3>Response</h3>\n";
-        echo "<code>" . nl2br(htmlentities($this->_response)) . "</code><br/>\n\n";
+        echo "<code>" . nl2br(htmlentities($this->response)) . "</code><br/>\n\n";
 
-        if ($this->_error) {
+        if ($this->error) {
             echo "=============================================<br/>\n";
             echo "<h3>Errors</h3>";
-            echo "<strong>Code:</strong> ".$this->_error['code']."<br/>\n";
-            echo "<strong>Message:</strong> ".$this->_error['message']."<br/>\n";
+            echo "<strong>Code:</strong> ".$this->error['code']."<br/>\n";
+            echo "<strong>Message:</strong> ".$this->error['message']."<br/>\n";
         }
 
         echo "=============================================<br/>\n";
         echo "<h3>Info</h3>";
         echo "<pre>";
-        print_r(!empty($this->_info));
+        print_r(!empty($this->info));
         echo "</pre>";
     }
 
@@ -125,7 +125,7 @@ class Response
      */
     public function status()
     {
-        return $this->_info['http_code'];
+        return $this->info['http_code'];
     }
 
     /**
