@@ -30,7 +30,13 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 {
     protected $object;
     protected $dataResponse = 'foobar';
-    protected $dataInfo = array('foo'=>'bar', 'http_code'=>500);
+    protected $dataInfo = array(
+        'foo'=>'bar',
+        'http_code'=>500,
+        'assoc' => array(
+            'aaa' => 'bbb'
+        )
+    );
 
     /**
      * Setup Each Test
