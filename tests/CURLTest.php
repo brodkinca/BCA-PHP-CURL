@@ -203,22 +203,29 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     /**
      * @covers BCA\CURL\CURL::option
      */
-    public function testOption()
+    public function testOptionConstant()
     {
         // Named option
         $request = new CURL(REMOTE_TEST_SERVER);
-        $response = $request->option(CURLOPT_CONNECTTIMEOUT_MS, 1)->get();
-        $this->assertFalse($response->success());
+        $response = $request
+            ->option(CURLOPT_FILETIME, true)
+            ->get();
+        $response->debug();
+        $this->expectOutputRegex("/Filetime/");
+    }
 
+    /**
+     * @covers BCA\CURL\CURL::option
+     */
+    public function testOptionString()
+    {
         // Named option, unprefixed string
         $request = new CURL(REMOTE_TEST_SERVER);
-        $response = $request->option('CONNECTTIMEOUT_MS', 1)->get();
-        $this->assertFalse($response->success());
-
-        // Numeric option (CURLOPT_CONNECTTIMEOUT_MS)
-        $request = new CURL(REMOTE_TEST_SERVER);
-        $response = $request->option(156, 1)->get();
-        $this->assertFalse($response->success());
+        $response = $request
+            ->option('FILETIME', true)
+            ->get();
+        $response->debug();
+        $this->expectOutputRegex("/Filetime/");
     }
 
     /**
@@ -328,11 +335,12 @@ class CURLTest extends \PHPUnit_Framework_TestCase
     public function testSsl()
     {
         // No parameters
-        $request = new CURL(REMOTE_TEST_SERVER);
+        $request = new CURL(REMOTE_TEST_SERVER_SSL);
+        $request->option(CURLOPT_CAINFO, SSL_CERT_PATH);
         $response = $request->ssl()->get();
         $this->assertTrue($response->success());
+
         $response = json_decode($response);
-        $this->assertEquals('https', $response->headers->X_FORWARDED_PROTO);
 
         // Don't verify peer
         $request = new CURL('http://example.com/');
