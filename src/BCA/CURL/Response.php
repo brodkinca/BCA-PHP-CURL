@@ -98,24 +98,32 @@ class Response
      */
     public function debug()
     {
-        echo "=============================================<br/>\n";
-        echo "<h2>CURL Request Debugger</h2>\n";
-        echo "=============================================<br/>\n";
-        echo "<h3>Response</h3>\n";
-        echo "<code>" . nl2br(htmlentities($this->response)) . "</code><br/>\n\n";
+        echo "<pre>\n";
+        echo "=============================================\n";
+        echo "CURL REQUEST DEBUGGER\n";
+        echo "=============================================\n\n";
+
+        echo "=============================================\n";
+        echo "Response\n";
+        echo "=============================================\n";
+        echo nl2br(htmlentities($this->response)) . "\n\n";
 
         if ($this->error) {
-            echo "=============================================<br/>\n";
-            echo "<h3>Errors</h3>";
+            echo "=============================================\n";
+            echo "Errors\n";
+            echo "=============================================\n";
             echo "<strong>Code:</strong> ".$this->error['code']."<br/>\n";
-            echo "<strong>Message:</strong> ".$this->error['message']."<br/>\n";
+            echo "<strong>Message:</strong> ".$this->error['message']."<br/>\n\n";
         }
 
-        echo "=============================================<br/>\n";
-        echo "<h3>Info</h3>";
-        echo "<pre>";
-        print_r(!empty($this->info));
-        echo "</pre>";
+        echo "=============================================\n";
+        echo "Info\n";
+        echo "=============================================\n";
+        foreach ($this->info as $key => $value) {
+            echo ucwords(str_replace('_', ' ', $key)).": ".$value."\n";
+        }
+
+        echo "\n</pre>";
     }
 
     /**

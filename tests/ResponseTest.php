@@ -42,8 +42,8 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
         $error = array('code' => 6, 'message' => CURLE_COULDNT_RESOLVE_HOST);
 
         $this->object = new Response(
-            $this->dataResponse, 
-            $this->dataInfo, 
+            $this->dataResponse,
+            $this->dataInfo,
             $error
         );
     }
@@ -79,10 +79,11 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
      */
     public function test_debug()
     {
-        $this->expectOutputRegex("/Debugger/");
+        $this->expectOutputRegex("/DEBUGGER/");
         $this->assertNull($this->object->debug());
 
         $this->expectOutputRegex("/Errors/");
+        $this->expectOutputRegex("/Http Code/");
     }
 
     /**
