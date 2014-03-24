@@ -12,6 +12,7 @@
 >
   <php>
     <const name="REMOTE_TEST_SERVER" value="http://bca-php-curl-tests.gopagoda.com/" />
+    <const name="REMOTE_TEST_SERVER_SSL" value="https://bca-php-curl-tests.gopagoda.com/" />
   </php>
   <testsuites>
     <testsuite>
