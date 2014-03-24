@@ -104,7 +104,7 @@ class Response
         echo "=============================================\n\n";
 
         echo "=============================================\n";
-        echo "Response\n";
+        echo "Response (".gettype($this->response).")\n";
         echo "=============================================\n";
         echo $this->response."\n\n";
 
