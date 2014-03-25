@@ -19,6 +19,5 @@ before_script:
   - sudo sed -e "s?%TRAVIS_BUILD_DIR%?$(pwd)?g" --in-place /etc/apache2/sites-available/default
   - sudo service apache2 restart
   - sleep 5
-  - curl -v http://localhost/
 script:
   - vendor/bin/phpunit -c phpunit.ci.xml
