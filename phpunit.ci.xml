@@ -11,8 +11,8 @@
          syntaxCheck="false"
 >
   <php>
-    <const name="REMOTE_TEST_SERVER" value="http://127.0.0.1/" />
-    <const name="REMOTE_TEST_SERVER_SSL" value="https://127.0.0.1/" />
+    <const name="REMOTE_TEST_SERVER" value="http://localhost/" />
+    <const name="REMOTE_TEST_SERVER_SSL" value="https://localhost/" />
   </php>
   <testsuites>
     <testsuite>
