@@ -23,4 +23,4 @@ notifications:
   email: false
   hipchat:
     rooms:
-      secure: b/oALvrfBJ1hGOOveWXTSsS8C2LDyc8K+9nA1+HWw2CkT1PcDsGj4eeOW/gAQvmz2Jr3sbqa5dvSYok/ZjMitGWjCh6T4VmhACWMwOwL+7Fwf5l9PXovSINVQmPcdwdo34J9/leCDDH7vaBhg/3Z0N5kALYXjuqjbZ4fiAQaL+w=
+      secure: UsG6IR4XdIlBdyMGRYqBI+kDQtNQXWTqdg/lAjTUjqMGovgjtfCfURrGZ+SyWx8Tpg+XmARunfXuBkYghbF0hk0Iy+47xFUqsixElO7ddkLE0Mq3DZ4VrbokquybeJ51eCfNM2JjYhjRcGGtay/6kbrTtmVIf5GCyRRBnEl3gCo=
