@@ -343,7 +343,7 @@ class CURLTest extends \PHPUnit_Framework_TestCase
         $response = json_decode($response);
 
         // Don't verify peer
-        $request = new CURL('http://example.com/');
+        $request = new CURL(REMOTE_TEST_SERVER_SSL);
         $response = $request->ssl(false, false)->get();
         $this->assertTrue($response->success());
 
