@@ -338,6 +338,7 @@ class CURLTest extends \PHPUnit_Framework_TestCase
         $request = new CURL(REMOTE_TEST_SERVER_SSL);
         $request->option(CURLOPT_CAINFO, SSL_CERT_PATH);
         $response = $request->ssl()->get();
+        $response->debug();
         $this->assertTrue($response->success());
         $response = json_decode($response);
 
