@@ -25,8 +25,8 @@
         "league/phpunit-coverage-listener": "~1.1"
     },
     "autoload": {
-        "psr-0": {
-            "BCA\\CURL": "src"
+        "psr-4": {
+            "BCA\\CURL\\": "src"
         }
     },
     "require-dev": {
