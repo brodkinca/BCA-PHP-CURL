@@ -342,6 +342,7 @@ class CURLTest extends \PHPUnit_Framework_TestCase
         $response = $request->ssl()->get();
         $response->debug();
         $this->assertTrue($response->success());
+
         $response = json_decode($response);
 
         // Don't verify peer
