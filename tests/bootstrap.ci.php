@@ -14,6 +14,8 @@
  * @link      https://github.com/brodkinca/BCA-PHP-CURL
  */
 
+date_default_timezone_set("America/Toronto");
+
 // Load Dependencies
 require_once 'vendor/autoload.php';
 
