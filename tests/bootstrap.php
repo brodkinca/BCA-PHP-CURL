@@ -14,11 +14,8 @@
  * @link      https://github.com/brodkinca/BCA-PHP-CURL
  */
 
-<<<<<<< HEAD
-=======
 date_default_timezone_set("America/Los_Angeles");
 
->>>>>>> release/2.2.0
 // Load Dependencies
 require_once 'vendor/autoload.php';
 
