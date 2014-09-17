@@ -331,6 +331,7 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\CURL::ssl
+     * @group  ssl
      */
     public function testSsl()
     {

@@ -9,7 +9,7 @@ before_script:
   - sudo apt-get update
   - sudo apt-get install apache2 libapache2-mod-fastcgi curl libcurl3 libcurl3-dev
   - sudo cp ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf.default ~/.phpenv/versions/$(phpenv version-name)/etc/php-fpm.conf
-  - sudo a2enmod rewrite actions fastcgi alias ssl
+  - sudo a2enmod rewrite actions fastcgi alias
   - echo "cgi.fix_pathinfo = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - echo "extension=php_curl.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - ~/.phpenv/versions/$(phpenv version-name)/sbin/php-fpm
@@ -19,9 +19,8 @@ before_script:
   - sleep 5
   - php -i
   - cat ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - curl -v --cacert tests/remote/server.pem https://localhost/
 script:
-  - vendor/bin/phpunit -c phpunit.ci.xml --debug
+  - vendor/bin/phpunit -c phpunit.ci.xml --exclude-group ssl
 notifications:
   email: false
   hipchat:
