@@ -178,12 +178,13 @@ class CURLTest extends \PHPUnit_Framework_TestCase
      */
     public function testCookies()
     {
-        $cookies = array('foo'=>'bar');
+        $cookies = array('foo'=>'bar', 'aaa'=>'bbb');
         $request = new CURL(REMOTE_TEST_SERVER);
         $response = $request->cookies($cookies)->get();
         $this->assertTrue($response->success());
         $response = json_decode($response);
         $this->assertEquals('bar', $response->_COOKIE->foo);
+        $this->assertEquals('bbb', $response->_COOKIE->aaa);
     }
 
     /**
@@ -331,6 +332,7 @@ class CURLTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers BCA\CURL\CURL::ssl
+     * @group  ssl
      */
     public function testSsl()
     {
@@ -338,12 +340,13 @@ class CURLTest extends \PHPUnit_Framework_TestCase
         $request = new CURL(REMOTE_TEST_SERVER_SSL);
         $request->option(CURLOPT_CAINFO, SSL_CERT_PATH);
         $response = $request->ssl()->get();
+        $response->debug();
         $this->assertTrue($response->success());
 
         $response = json_decode($response);
 
         // Don't verify peer
-        $request = new CURL('http://example.com/');
+        $request = new CURL(REMOTE_TEST_SERVER_SSL);
         $response = $request->ssl(false, false)->get();
         $this->assertTrue($response->success());
 

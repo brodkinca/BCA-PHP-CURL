@@ -112,6 +112,8 @@ class CURL
      */
     public function post($data = null)
     {
+        $this->option(CURLOPT_POST, true);
+
         if (!empty($data)) {
             $this->option(CURLOPT_POSTFIELDS, $data);
 
@@ -128,8 +130,11 @@ class CURL
         }
 
         $this->method('post');
+<<<<<<< HEAD:src/BCA/CURL/CURL.php
 
         $this->option(CURLOPT_POST, true);
+=======
+>>>>>>> release/2.2.0:src/CURL.php
 
         return $this->execute();
     }
@@ -209,7 +214,7 @@ class CURL
     public function cookies(array $params = array())
     {
         if (is_array($params)) {
-            $params = http_build_query($params, null, '&');
+            $params = http_build_query($params, null, ';');
         }
 
         $this->option(CURLOPT_COOKIE, $params);
