@@ -178,12 +178,13 @@ class CURLTest extends \PHPUnit_Framework_TestCase
      */
     public function testCookies()
     {
-        $cookies = array('foo'=>'bar');
+        $cookies = array('foo'=>'bar', 'aaa'=>'bbb');
         $request = new CURL(REMOTE_TEST_SERVER);
         $response = $request->cookies($cookies)->get();
         $this->assertTrue($response->success());
         $response = json_decode($response);
         $this->assertEquals('bar', $response->_COOKIE->foo);
+        $this->assertEquals('bbb', $response->_COOKIE->aaa);
     }
 
     /**
