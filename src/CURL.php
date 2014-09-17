@@ -130,11 +130,6 @@ class CURL
         }
 
         $this->method('post');
-<<<<<<< HEAD:src/BCA/CURL/CURL.php
-
-        $this->option(CURLOPT_POST, true);
-=======
->>>>>>> release/2.2.0:src/CURL.php
 
         return $this->execute();
     }
