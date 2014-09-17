@@ -112,6 +112,8 @@ class CURL
      */
     public function post($data = null)
     {
+        $this->option(CURLOPT_POST, true);
+
         if (!empty($data)) {
             $this->option(CURLOPT_POSTFIELDS, $data);
 
@@ -128,8 +130,6 @@ class CURL
         }
 
         $this->method('post');
-
-        $this->option(CURLOPT_POST, true);
 
         return $this->execute();
     }
